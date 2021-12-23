@@ -1,0 +1,1 @@
+export {AddUserProfile} from "./service"
