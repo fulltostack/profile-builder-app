@@ -45,11 +45,11 @@ export const ViewProfilePage = () => {
     {
       title: "Experience",
       dataIndex: "workExperience",
+      key: "workExperience",
       render: (workExperience) =>
         `${moment(workExperience?.at(-1).startDate).format(
           "MMM-YYYY"
-        )} -Present`,
-      key: "workExperience",
+        )}-Present`,
     },
     {
       title: "Actions",
@@ -86,6 +86,7 @@ export const ViewProfilePage = () => {
         dataSource={userProfileList}
         scroll={{ x: 1500 }}
         sticky
+        bordered
       />
     </div>
   );

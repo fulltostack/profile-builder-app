@@ -33,11 +33,11 @@ How differently will you do if you had a couple of more days to complete the ass
 ### Answer 3 :
 
 - If I had one full month in developing this project, I would have made the user interface more interactive and user friendly.
-- I would created a responsive version for the same.
-- I would added test cases.
-- I would used context api for state manage.
-- I would used axios for request management.
-- I would used proptypes for validation components props.
+- I would create a responsive version for the same.
+- I would add test cases.
+- I would use context api for state management.
+- I would use axios for request management.
+- I would use proptypes for validation of component props.
 - I would like to add the confirmation popup for the delete button.
 
 # Getting Started with Create React App

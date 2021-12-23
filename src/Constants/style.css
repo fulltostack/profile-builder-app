@@ -1,0 +1,21 @@
+.ant-table-tbody > tr > td {
+  padding-left: 0;
+  padding-right: 0;
+}
+.ant-table-wrapper {
+    padding-top: 0px !important;
+}
+
+.ant-table-ping-left:not(.ant-table-has-fix-left) .ant-table-container::before {
+  box-shadow: none;
+}
+.ant-table-thead > tr > th {
+  position: none;
+  color: none;
+  text-align: none;
+  border-bottom: none;
+  transition: none;
+}
+.ant-table-tbody > tr > td > .ant-table-wrapper:only-child .ant-table, .ant-table-tbody > tr > td > .ant-table-expanded-row-fixed > .ant-table-wrapper:only-child .ant-table {
+    margin: 0;
+}
