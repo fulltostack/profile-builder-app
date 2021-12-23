@@ -13,7 +13,7 @@ What was your approach for this project? Did it change as you developed the app 
 - used `react-router-dom` v6 for routing.
 
 - Following that, I revisited the changes introduced in `react-router-dom` v6.
-- After creating the form, adding validations along with respective error messages, I started on writing the logic for the requested operations and winded up the project after some basic ui fixies.
+- After creating the form, adding validations along with respective error messages, I started on writing the logic for the requested operations and winded up the project after some basic ui fixes.
 
 I believe every task comes with responsibility and teaches us something to sharpen our skills. It definitely helped me in leveling up my skills.
 
@@ -38,6 +38,7 @@ How differently will you do if you had a couple of more days to complete the ass
 - I would used context api for state manage.
 - I would used axios for request management.
 - I would used proptypes for validation components props.
+- I would like to add the confirmation popup for the delete button.
 
 # Getting Started with Create React App
 
