@@ -1,0 +1,49 @@
+.ant-typography {
+  color: rgb(204 46 46 / 85%);
+  padding: 2px 0px;
+  font-size: 10px;
+}
+.ant-page-header {
+  padding: 0;
+}
+.form-container {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 6px;
+  padding: 10px;
+}
+.ant-btn {
+  border: 1px solid #8689d6;
+  border-radius: 3px;
+  margin: 20px auto;
+}
+.ant-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 21px;
+}
+.ant-form-item-control {
+  width: 100%;
+}
+.ant-picker {
+  width: 100%;
+}
+.ant-form-item {
+  margin-bottom: 0;
+}
+.ant-form-wrap {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 0;
+  column-gap: 15px;
+  width: 100%;
+}
+.ant-form-item-control-input-content {
+  flex: auto;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}

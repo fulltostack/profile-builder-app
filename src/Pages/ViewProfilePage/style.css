@@ -1,0 +1,7 @@
+.ant-table-wrapper {
+  padding-top: 10px;
+}
+.ant-table-container {
+  overflow-y: scroll;
+  height: 340px;
+}

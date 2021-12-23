@@ -1,4 +1,5 @@
-import { Input, DatePicker, Select, Form } from "antd";
+import { Input, DatePicker, Select, Form, Typography } from "antd";
+
 import "./style.css";
 
 export const FormView = ({
@@ -7,12 +8,13 @@ export const FormView = ({
   setFieldValue,
   values,
   skills,
+  errors,
+  touched,
 }) => {
-  const [form] = Form.useForm();
   const { Option } = Select;
 
   return (
-    <Form form={form} layout="vertical">
+    <>
       <Form.Item label="FirstName :">
         <Input
           type="text"
@@ -22,7 +24,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.firstName && touched?.firstName && (
+            <Typography type="error">{errors.firstName}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="LastName :">
         <Input
           type="text"
@@ -32,7 +40,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.lastName && touched?.lastName && (
+            <Typography type="error">{errors.lastName}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="Email :">
         <Input
           type="text"
@@ -42,7 +56,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.email && touched?.email && (
+            <Typography type="error">{errors.email}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="TagLine :">
         <Input
           type="text"
@@ -52,8 +72,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.tagLine && touched?.tagLine && (
+            <Typography type="error">{errors.tagLine}</Typography>
+          )}
+        </Typography>
       </Form.Item>
-      <Form.Item label="Company :">
+      <Form.Item key="company" label="Company :">
         <Input
           type="text"
           name="company"
@@ -62,7 +87,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.company && touched?.company && (
+            <Typography type="error">{errors.company}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="Role">
         <Input
           type="text"
@@ -72,7 +103,13 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.role && touched?.role && (
+            <Typography type="error">{errors.role}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="Description :">
         <Input
           type="text"
@@ -82,41 +119,64 @@ export const FormView = ({
           onChange={handleChange}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.description && touched?.description && (
+            <Typography type="error">{errors.description} </Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="StartDate :">
         <DatePicker
           type="Date"
           name="startDate"
-          value={values.startDate}
           placeholder="Start Date"
           onChange={(date) => setFieldValue("startDate", date)}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.startDate && touched?.startDate && (
+            <Typography type="error">{errors.startDate}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="EndDate :">
         <DatePicker
           type="Date"
           name="endDate"
-          value={values.endDate}
           placeholder="End Date"
           onChange={(date) => setFieldValue("endDate", date)}
           onBlur={handleBlur}
         />
+        <Typography className="error-text">
+          {errors?.endDate && touched?.endDate && (
+            <Typography type="error">{errors.endDate}</Typography>
+          )}
+        </Typography>
       </Form.Item>
+
       <Form.Item label="Skills :">
         <Select
           type="text"
           name="skills"
+          mode="multiple"
           placeholder="Skills"
-          value={values.skills}
           onChange={(item) => setFieldValue("skills", item)}
           onBlur={handleBlur}
         >
-          {skills.map((item) => (
-            <Option key={item}>{item}</Option>
+          {skills?.map((item, index) => (
+            <Option key={index} value={item}>
+              {item}
+            </Option>
           ))}
         </Select>
+        <Typography className="error-text">
+          {errors?.skills && touched?.skills && (
+            <Typography type="error">{errors.skills}</Typography>
+          )}
+        </Typography>
       </Form.Item>
-    </Form>
+    </>
   );
 };

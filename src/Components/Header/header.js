@@ -1,19 +1,23 @@
-import { PageHeader, Anchor } from "antd";
+import { PageHeader } from "antd";
+
+import { ROUTES } from "../../Constants/routes";
+
+import "./style.css";
 
 export const HeaderView = () => {
-  const { Link } = Anchor;
-
   return (
     <PageHeader
       className="site-page-header"
-      onBack={() => window.history.back()}
       title="Profile Builder"
       extra={[
-        <Anchor>
-          <Link href="/home">Home</Link>
-          <Link href="#components-anchor-demo-basic">Edit Profile</Link>
-          <Link href="#components-anchor-demo-basic">View Profile</Link>
-        </Anchor>,
+        <div key="header" className="header-links">
+          <a className="create-profile" href={ROUTES.createProfile}>
+            Create Profile
+          </a>
+          <a className="view-profile" href={ROUTES.root}>
+            View Profile
+          </a>
+        </div>,
       ]}
       style={{ width: "100%" }}
     />

@@ -9,6 +9,7 @@ export const INITIALVALUES = {
   endDate: "",
   description: "",
   skills: "",
+  id: new Date().getMilliseconds().toString(),
 };
 
-export const SKILLS = ["React", "Anguler", "veu", "java", "javaScript"];
+export const SKILLS = ["React ", "Angular ", "Python ", "java ", "javaScript ","Django ","Html ","CSS ","Next Js "];

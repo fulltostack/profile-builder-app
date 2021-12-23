@@ -7,13 +7,12 @@ export const validationSchema = Yup.object().shape({
   tagLine: Yup.string().required(),
   company: Yup.string().required(),
   role: Yup.string().required(),
-  startDate: Yup.date().max(
-    Yup.ref("endDate"),
-    "End date can't be before Start date"
-  ),
+  startDate: Yup.date()
+    .max(Yup.ref("endDate"), "End date can't be before Start date")
+    .required(),
   endDate: Yup.date().required(),
   description: Yup.string()
     .max(300, "Should not be exceeded 300 words")
     .required(),
-  skills: Yup.string().required(),
+  skills: Yup.array().required(),
 });

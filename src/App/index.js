@@ -1,13 +1,11 @@
-import { AppLayout } from "../Components/Layout";
+import { AppLayout } from "../Components/AppLayout";
 import { Routers } from "../Router";
 
 const App = () => {
   return (
-    <div>
-      <AppLayout>
-        <Routers />
-      </AppLayout>
-    </div>
+    <AppLayout>
+      <Routers />
+    </AppLayout>
   );
 };
 

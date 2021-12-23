@@ -1,1 +1,1 @@
-export {AddUserProfile} from "./service"
+export { filterList, findMatchingRecord, addOrEditProfile } from "./service";

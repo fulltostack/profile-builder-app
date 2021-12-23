@@ -10,3 +10,6 @@
   font-size: 14px !important;
   background: #c9cdd2 !important;
 }
+.ant-page-header-heading-left {
+  margin: 16px !important;
+}

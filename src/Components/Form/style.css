@@ -1,5 +1,3 @@
-.ant-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.error-text {
+  position: absolute;
 }
