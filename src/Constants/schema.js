@@ -1,8 +1,12 @@
 import * as Yup from "yup";
 
 export const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required(),
-  lastName: Yup.string().required(),
+  firstName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+    .required(),
+  lastName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+    .required(),
   email: Yup.string().email("Invalid email format").required(),
   tagLine: Yup.string().required(),
   company: Yup.string().required(),
@@ -13,6 +17,7 @@ export const validationSchema = Yup.object().shape({
   endDate: Yup.date().required(),
   description: Yup.string()
     .max(300, "Should not be exceeded 300 words")
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
     .required(),
   skills: Yup.array().required(),
 });

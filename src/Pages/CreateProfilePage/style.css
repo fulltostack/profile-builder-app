@@ -34,13 +34,7 @@
 .ant-form-item {
   margin-bottom: 0;
 }
-.ant-form-wrap {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
-  margin-left: 0;
-  column-gap: 15px;
-  width: 100%;
-}
+
 .ant-form-item-control-input-content {
   flex: auto;
   max-width: 100%;

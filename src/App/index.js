@@ -1,4 +1,4 @@
-import { AppLayout } from "../Components/AppLayout";
+import { AppLayout } from "../Components/AppLayout/appLayout";
 import { Routers } from "../Router";
 
 const App = () => {

@@ -73,9 +73,13 @@ export const ViewProfilePage = () => {
       key: "skills",
     },
     {
+      title: "Actions",
+      fixed: "right",
+      width: 100,
       render: (record) => (
         <Space size="middle">
           <button
+            style={{ cursor: "pointer" }}
             onClick={() => {
               onDelete(record);
             }}
@@ -86,9 +90,16 @@ export const ViewProfilePage = () => {
       ),
     },
     {
+      fixed: "right",
+      width: 100,
       render: (record) => (
         <Space size="middle">
-          <button onClick={() => onUpdate(record)}>Update</button>
+          <button
+            style={{ cursor: "pointer" }}
+            onClick={() => onUpdate(record)}
+          >
+            Update
+          </button>
         </Space>
       ),
     },

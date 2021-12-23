@@ -1,4 +1,5 @@
-import { PageHeader } from "antd";
+import React from "react";
+import { PageHeader, Tag } from "antd";
 
 import { ROUTES } from "../../Constants/routes";
 
@@ -8,7 +9,11 @@ export const HeaderView = () => {
   return (
     <PageHeader
       className="site-page-header"
-      title="Profile Builder"
+      title={
+        <a className="profile-builder" href={ROUTES.root}>
+          Profile Builder
+        </a>
+      }
       extra={[
         <div key="header" className="header-links">
           <a className="create-profile" href={ROUTES.createProfile}>

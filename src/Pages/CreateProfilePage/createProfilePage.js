@@ -51,17 +51,15 @@ export const CreateProfilePage = () => {
   return (
     <div className="form-container">
       <form className="ant-form" layout="vertical" onSubmit={handleSubmit}>
-        <div className="ant-form-wrap">
-          <FormView
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-            setFieldValue={setFieldValue}
-            values={values}
-            skills={SKILLS}
-            errors={errors}
-            touched={touched}
-          />
-        </div>
+        <FormView
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          setFieldValue={setFieldValue}
+          values={values}
+          skills={SKILLS}
+          errors={errors}
+          touched={touched}
+        />
         <button className="ant-btn" type="submit" disabled={isSubmitting}>
           {location.state != null && location.state.edit ? "Edit" : "Submit"}
         </button>
