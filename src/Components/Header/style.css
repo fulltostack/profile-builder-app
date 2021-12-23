@@ -2,14 +2,21 @@
   margin: 16px;
   color: #161111;
 }
+
 .header-links {
   display: flex;
   flex-direction: row;
 }
+
 .view-profile {
   margin: 16px;
   color: #161111;
 }
+
 .profile-builder {
   color: #161111 !important;
+}
+
+.site-page-header {
+  width: "100%";
 }

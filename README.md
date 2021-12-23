@@ -4,17 +4,18 @@ What was your approach for this project? Did it change as you developed the app 
 
 ### Answer 1:
 
-After reading the instruction carefully and following the tips which were given, I started on the project by creating the folder structure and installing the required packages which include `formik`, `Yup`, and `antd`.
+- After reading the instruction carefully and following the tips which were given, I started on the project by creating the folder structure and installed the required packages which include `formik`, `Yup`, and `antd`.
 
-used `formik` to deal with forms.
-used `Yup` for form validation.
-used `antd` for user interface.
-used `localstorage` to store and retrieve data
-used `react-router-dom` v6 for routing.
+- used `formik` to deal with forms.
+- used `Yup` for form validation.
+- used `antd` for user interface.
+- used `localstorage` to store and retrieve data.
+- used `react-router-dom` v6 for routing.
 
-Following that, I explored about `formik`, `antd`, changes introduced in `react-router-dom` v6. After creating the form, adding validations along with respective error messages, I started on writing the logic for the requested operations and winded up the project after some basic ui fixies.
+- Following that, I revisited the changes introduced in `react-router-dom` v6.
+- After creating the form, adding validations along with respective error messages, I started on writing the logic for the requested operations and winded up the project after some basic ui fixies.
 
-I believe every task comes with responsibility and teaches us something to sharpen our skills. I took this task as an opportunity to learn about `formik`, `antd`, and `react-router-dom` v6. It definitely helped me in leveling up my skills.
+I believe every task comes with responsibility and teaches us something to sharpen our skills. It definitely helped me in leveling up my skills.
 
 ### Question 2:
 
@@ -22,9 +23,8 @@ What were the challenges you faced?
 
 ### Answer 2 :
 
-Given the time constraint, I faced some issues in finding appropriate props for setting values and dealing with `formik`.
-I had to do research for finding a prop `enableReinitialize` to reinitialize the form after edit operation.
-I had to find alternate ways for dealing with state in history object as v6 no longer exposes the history object.
+- Given the time constraint, I developed components with reduced dependencies so that I could reuse the components in multiple places.
+- I have created the architecture in such a way that we can easily expand this project.
 
 ### Question 3:
 
@@ -32,8 +32,12 @@ How differently will you do if you had a couple of more days to complete the ass
 
 ### Answer 3 :
 
-If I had one full month in developing this project, I would have made the user interface more interactive, friendly.
-I would have created a responsive version for the same. I would have added a graph for showing per day entries.
+- If I had one full month in developing this project, I would have made the user interface more interactive and user friendly.
+- I would created a responsive version for the same.
+- I would added test cases.
+- I would used context api for state manage.
+- I would used axios for request management.
+- I would used proptypes for validation components props.
 
 # Getting Started with Create React App
 
@@ -105,5 +109,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-

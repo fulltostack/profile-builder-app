@@ -1,11 +1,12 @@
 import React from "react";
-import { PageHeader, Tag } from "antd";
+import { PageHeader } from "antd";
 
 import { ROUTES } from "../../Constants/routes";
 
 import "./style.css";
 
 export const HeaderView = () => {
+  
   return (
     <PageHeader
       className="site-page-header"
@@ -24,7 +25,6 @@ export const HeaderView = () => {
           </a>
         </div>,
       ]}
-      style={{ width: "100%" }}
     />
   );
 };

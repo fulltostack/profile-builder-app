@@ -1,7 +1,12 @@
 .ant-table-wrapper {
   padding-top: 10px;
 }
+
 .ant-layout-content {
   flex: auto;
   min-height: calc(100vh - 134px) !important;
+}
+
+button {
+  cursor: pointer;
 }

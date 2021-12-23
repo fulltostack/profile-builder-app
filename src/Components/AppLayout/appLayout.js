@@ -7,6 +7,7 @@ import "./style.css";
 
 export const AppLayout = ({ children }) => {
   const { Header, Footer, Content } = Layout;
+  
   return (
     <Layout>
       <Header>

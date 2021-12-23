@@ -1,2 +1,2 @@
 export { validationSchema } from "./schema";
-export { INITIALVALUES, SKILLS } from "./constant";
+export { INITIALVALUES, SKILLS, COLUMNHEADERS } from "./constant";

@@ -19,5 +19,5 @@ export const validationSchema = Yup.object().shape({
     .max(300, "Should not be exceeded 300 words")
     .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
     .required(),
-  skills: Yup.array().required(),
+  skills: Yup.array().required().min(1),
 });

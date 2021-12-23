@@ -1,6 +1,7 @@
 .error-text {
   position: absolute;
 }
+
 .ant-form-wrap {
   display: grid !important;
   grid-template-columns: 1fr 1fr;
@@ -8,6 +9,7 @@
   column-gap: 15px;
   width: 100%;
 }
+
 .ant-design-form {
   width: 100%;
 }
