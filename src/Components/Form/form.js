@@ -1,6 +1,7 @@
 import React from "react";
-import { Input, DatePicker, Select, Form, Typography } from "antd";
-import moment from "moment";
+import { Input, Typography, Select, Form } from "antd";
+import { FieldArray, Field } from "formik";
+import { DeleteOutlined, PlusCircleOutlined } from "@ant-design/icons";
 
 import "./style.css";
 
@@ -44,26 +45,16 @@ export const FormView = ({
       errors: errors.tagLine,
       touched: touched.tagLine,
     },
-    {
-      label: "Company",
-      name: "company",
-      value: values.company,
-      errors: errors.company,
-      touched: touched.company,
-    },
-    {
-      label: "Role",
-      name: "role",
-      value: values.role,
-      errors: errors.role,
-      touched: touched.role,
-    },
   ];
 
   const renderErrorSection = (errors, touched) => {
     return (
-      <Typography className="error-text">
-        {errors && touched && <Typography type="error">{errors}</Typography>}
+      <Typography>
+        {errors && touched && (
+          <Typography className="error-text" type="error">
+            {errors}
+          </Typography>
+        )}
       </Typography>
     );
   };
@@ -84,31 +75,139 @@ export const FormView = ({
             {renderErrorSection(item.errors, item.touched)}
           </Form.Item>
         ))}
-        <Form.Item label="StartDate :">
-          <DatePicker
-            type="Date"
-            name="startDate"
-            placeholder="Start Date"
-            value={values.startDate ? moment(values.startDate) : ""}
-            onChange={(date) => setFieldValue("startDate", date)}
-            onBlur={handleBlur}
-          />
-          {renderErrorSection(errors?.startDate, touched?.startDate)}
-        </Form.Item>
-
-        <Form.Item label="EndDate :">
-          <DatePicker
-            type="Date"
-            name="endDate"
-            placeholder="End Date"
-            value={values.endDate ? moment(values.endDate) : ""}
-            onChange={(date) => setFieldValue("endDate", date)}
-            onBlur={handleBlur}
-          />
-          {renderErrorSection(errors?.endDate, touched?.endDate)}
-        </Form.Item>
       </div>
+      <FieldArray name="workExperience">
+        {({ remove, push }) => (
+          <div>
+            <div className="ant-text">
+              <Typography orientation="left">
+                Work Experiences: {values?.workExperience?.length}
+              </Typography>
+              <div className="add-icon">
+                <PlusCircleOutlined
+                  onClick={() =>
+                    push({
+                      company: "",
+                      role: "",
+                      description: "",
+                      startDate: "",
+                      endDate: "",
+                    })
+                  }
+                />
+              </div>
+            </div>
+            {values?.workExperience?.length > 0 &&
+              values?.workExperience.map((field, index) => (
+                <div className="row" key={index}>
+                  <div className="col">
+                    <DeleteOutlined onClick={() => remove(index)} />
+                  </div>
+                  <div className="ant-form-wrap">
+                    <Form.Item
+                      htmlFor={`workExperience.${index}.company`}
+                      label="Company"
+                    >
+                      <Input
+                        name={`workExperience.${index}.company`}
+                        placeholder="Company"
+                        type="text"
+                        value={field.company}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      {errors?.workExperience?.length > 0 &&
+                        touched?.workExperience?.length > 0 &&
+                        renderErrorSection(
+                          errors?.workExperience[0]?.company,
+                          touched?.workExperience[0]?.company
+                        )}
+                    </Form.Item>
+                    <Form.Item
+                      htmlFor={`workExperience.${index}.role`}
+                      label="Role"
+                    >
+                      <Input
+                        name={`workExperience.${index}.role`}
+                        placeholder="Role"
+                        type="text"
+                        value={field.role}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      {errors?.workExperience?.length > 0 &&
+                        touched?.workExperience?.length > 0 &&
+                        renderErrorSection(
+                          errors?.workExperience[0]?.role,
+                          touched?.workExperience[0]?.role
+                        )}
+                    </Form.Item>
 
+                    <Form.Item
+                      label="StartDate :"
+                      htmlFor={`workExperience.${index}.startDate`}
+                    >
+                      <Field
+                        type="Date"
+                        className="ant-date"
+                        name={`workExperience.${index}.startDate`}
+                        placeholder="Start Date"
+                        format="MM:YYYY"
+                        onBlur={handleBlur}
+                      />
+                      {errors?.workExperience?.length > 0 &&
+                        touched?.workExperience?.length > 0 &&
+                        renderErrorSection(
+                          errors?.workExperience[0]?.startDate,
+                          touched?.workExperience[0]?.startDate
+                        )}
+                    </Form.Item>
+                    <Form.Item
+                      label="EndDate :"
+                      htmlFor={`workExperience.${index}.endDate`}
+                    >
+                      <Field
+                        className="ant-date"
+                        name={`workExperience.${index}.endDate`}
+                        type="date"
+                        label="Start Time"
+                        format="MM:YYYY"
+                      />
+                      {errors?.workExperience?.length > 0 &&
+                        touched?.workExperience?.length > 0 &&
+                        renderErrorSection(
+                          errors?.workExperience[0]?.endDate,
+                          touched?.workExperience[0]?.endDate
+                        )}
+                    </Form.Item>
+                  </div>
+                  <Form.Item
+                    htmlFor={`workExperience.${index}.description`}
+                    label="description"
+                  >
+                    <TextArea
+                      name={`workExperience.${index}.description`}
+                      placeholder="Description"
+                      type="text"
+                      value={field.description}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      showCount
+                      row={4}
+                      maxLength={300}
+                    />
+                    {errors?.workExperience?.length > 0 &&
+                      touched?.workExperience?.length > 0 &&
+                      renderErrorSection(
+                        errors?.workExperience[0]?.description,
+                        touched?.workExperience[0]?.description
+                      )}
+                  </Form.Item>
+                </div>
+              ))}
+          </div>
+        )}
+      </FieldArray>
       <Form.Item className="ant-design-form" label="Skills :">
         <Select
           type="text"
@@ -126,21 +225,6 @@ export const FormView = ({
           ))}
         </Select>
         {renderErrorSection(errors?.skills, touched?.skills)}
-      </Form.Item>
-
-      <Form.Item className="ant-design-form" label="Description :">
-        <TextArea
-          showCount
-          maxLength={300}
-          rows={4}
-          type="text"
-          name="description"
-          value={values.description}
-          placeholder="Description"
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-        {renderErrorSection(errors?.description, touched?.description)}
       </Form.Item>
     </>
   );

@@ -1,14 +1,20 @@
+import { Tag } from "antd";
+
 export const INITIALVALUES = {
   firstName: "",
   lastName: "",
   email: "",
   tagLine: "",
-  company: "",
-  role: "",
-  startDate: "",
-  endDate: "",
-  description: "",
   skills: [],
+  workExperience: [
+    {
+      company: "",
+      role: "",
+      description: "",
+      startDate: "",
+      endDate: "",
+    },
+  ],
   id: new Date().getMilliseconds().toString(),
 };
 
@@ -45,34 +51,58 @@ export const COLUMNHEADERS = [
     dataIndex: "tagLine",
     key: "tagLine",
   },
+
   {
     title: "Company",
-    dataIndex: "company",
-    key: "company",
+    dataIndex: "workExperience",
+    render: (workExperience) =>
+      workExperience?.map((service) => (
+        <Tag color="purple" key={service.company}>
+          {service.company}
+        </Tag>
+      )),
+    key: "workExperience",
   },
   {
     title: "Role",
-    dataIndex: "role",
-    key: "role",
+    dataIndex: "workExperience",
+    render: (workExperience) =>
+      workExperience?.map((service) => (
+        <Tag color="gold" key={service.role}>
+          {service.role}
+        </Tag>
+      )),
+    key: "workExperience",
   },
   {
     title: "StartDate",
-    dataIndex: "startDate",
-    key: "startDate",
+    dataIndex: "workExperience",
+    render: (workExperience) =>
+      workExperience?.map((service) => (
+        <Tag color="cyan" key={service.startDate}>
+          {service.startDate}
+        </Tag>
+      )),
+    key: "workExperience",
   },
   {
     title: "EndDate",
-    dataIndex: "endDate",
-    key: "endDate",
+    dataIndex: "workExperience",
+    render: (workExperience) =>
+      workExperience?.map((service) => (
+        <Tag color="volcano" key={service.endDate}>
+          {service.endDate}
+        </Tag>
+      )),
+    key: "workExperience",
   },
   {
     title: "Description",
-    dataIndex: "description",
-    key: "description",
-  },
-  {
-    title: "Skills",
-    dataIndex: "skills",
-    key: "skills",
+    dataIndex: "workExperience",
+    render: (workExperience) =>
+      workExperience?.map((service) => (
+        <p key={service.description}>{service.description}</p>
+      )),
+    key: "workExperience",
   },
 ];

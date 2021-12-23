@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { useFormik } from "formik";
+import { Form, Formik } from "formik";
 import "antd/dist/antd.css";
 
 import { addOrEditProfile, findMatchingRecord } from "../../Service";
@@ -25,45 +25,42 @@ export const CreateProfilePage = () => {
     }
   }, [location.state]);
 
-  const FormikState = useFormik({
-    initialValues: userProfile,
-    validationSchema: validationSchema,
-    enableReinitialize: true,
-    onSubmit: (values, { setSubmitting, resetForm }) => {
-      addOrEditProfile(values);
-      resetForm();
-      setSubmitting(false);
-      navigate(ROUTES.root);
-    },
-  });
-
-  const {
-    handleChange,
-    handleSubmit,
-    handleBlur,
-    errors,
-    touched,
-    values,
-    setFieldValue,
-    isSubmitting,
-  } = FormikState;
-
   return (
     <div className="form-container">
-      <form className="ant-form" layout="vertical" onSubmit={handleSubmit}>
-        <FormView
-          handleChange={handleChange}
-          handleBlur={handleBlur}
-          setFieldValue={setFieldValue}
-          values={values}
-          skills={SKILLS}
-          errors={errors}
-          touched={touched}
-        />
-        <button className="ant-btn" type="submit" disabled={isSubmitting}>
-          {location.state != null && location.state.edit ? "Edit" : "Submit"}
-        </button>
-      </form>
+      <Formik
+        initialValues={userProfile}
+        validationSchema={validationSchema}
+        enableReinitialize={true}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          addOrEditProfile(values);
+          resetForm();
+          setSubmitting(false);
+          navigate(ROUTES.root);
+        }}
+      >
+        {(formikProps) => (
+          <Form className="ant-form" onSubmit={formikProps.handleSubmit}>
+            <FormView
+              handleChange={formikProps.handleChange}
+              handleBlur={formikProps.handleBlur}
+              setFieldValue={formikProps.setFieldValue}
+              values={formikProps.values}
+              skills={SKILLS}
+              errors={formikProps.errors}
+              touched={formikProps.touched}
+            />
+            <button
+              className="ant-btn"
+              type="submit"
+              disabled={formikProps.isSubmitting}
+            >
+              {location.state != null && location.state.edit
+                ? "Edit"
+                : "Submit"}
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
